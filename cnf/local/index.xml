@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<repository increment="1426146371643" name="Local" xmlns="http://www.osgi.org/xmlns/repository/v1.0.0">
+  <resource>
+    <capability namespace="osgi.identity">
+      <attribute name="osgi.identity" value="attach"/>
+      <attribute name="type" value="osgi.bundle"/>
+      <attribute name="version" type="Version" value="0.0.0"/>
+    </capability>
+    <capability namespace="osgi.content">
+      <attribute name="osgi.content" value="ac4b202f9399cbccbf7c473b716ec8655a5dcd64f1918e0d4cba4a8d13f86f79"/>
+      <attribute name="url" value="attach/attach-0.0.0.jar"/>
+      <attribute name="size" type="Long" value="152256"/>
+      <attribute name="mime" value="application/vnd.osgi.bundle"/>
+    </capability>
+    <capability namespace="osgi.wiring.bundle">
+      <attribute name="osgi.wiring.bundle" value="attach"/>
+      <attribute name="bundle-version" type="Version" value="0.0.0"/>
+    </capability>
+    <capability namespace="osgi.wiring.host">
+      <attribute name="osgi.wiring.host" value="attach"/>
+      <attribute name="bundle-version" type="Version" value="0.0.0"/>
+    </capability>
+  </resource>
+</repository>

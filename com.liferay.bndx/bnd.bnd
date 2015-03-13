@@ -1,0 +1,35 @@
+-buildpath: \
+	attach,\
+	aQute.libg,\
+	biz.aQute.bndlib,\
+	osgi.enroute.base.api
+
+-includeresource: META-INF/services=services
+
+-sources: false
+
+Bundle-Version: 0.1.0.${tstamp}
+
+Main-Class: com.liferay.bndx.bndx
+
+Private-Package: \
+	aQute.bnd.osgi,\
+	aQute.configurable;-split-package:=first,\
+	aQute.lib.collections;-split-package:=first,\
+	aQute.lib.consoleapp;-split-package:=first,\
+	aQute.lib.env;-split-package:=first,\
+	aQute.lib.getopt;-split-package:=first,\
+	aQute.lib.io;-split-package:=first,\
+	aQute.lib.justif;-split-package:=first,\
+	aQute.lib.markdown;-split-package:=first,\
+	aQute.lib.zip;-split-package:=first,\
+	aQute.libg.generics;-split-package:=first,\
+	aQute.libg.reporter;-split-package:=first,\
+	aQute.libg.sed;-split-package:=first,\
+	aQute.service.reporter;-split-package:=first,\
+	com.liferay.bndx,\
+	com.sun.tools.attach,\
+	com.sun.tools.attach.spi,\
+	org.osgi.framework,\
+	sun.jvmstat.*,\
+	sun.tools.attach
