@@ -59,6 +59,7 @@ public class bndx extends AbstractConsoleApp {
 	@Description("Deploys a bundle into OSGi framework over JMX")
 	public void _deploy(deployOptions options) throws Exception {
 		String bundlePath = options._().get(0);
+		System.out.println(System.getProperty("java.home"));
 
 		File bundleFile = new File(bundlePath);
 
@@ -72,7 +73,6 @@ public class bndx extends AbstractConsoleApp {
 			return;
 		}
 
-		final BundleDeployer bundleDeployer = getBundleDeployer(options);
 
 		String bsn = null;
 
@@ -81,14 +81,24 @@ public class bndx extends AbstractConsoleApp {
 		}
 
 		if (bsn == null) {
-			addError("deploy", "Unable to determine bsn for file " +
+			addError("Deploy", "Unable to determine bsn for file " +
 				bundleFile.getAbsolutePath());
 			return;
 		}
 
-		final long bundleId = bundleDeployer.deployBundle(bsn, bundleFile);
+		final BundleDeployer bundleDeployer = getBundleDeployer(options);
 
-		this.out.println("Installed or updated bundle " + bundleId);
+		if (bundleDeployer != null) {
+			final long bundleId = bundleDeployer.deployBundle(bsn, bundleFile);
+
+			if (bundleId > 0) {
+				this.out.println("Installed or updated bundle " + bundleId);
+			}
+			else {
+				addError("Deploy", "Unable to deploy bundle to framework " +
+					bundleId);
+			}
+		}
 	}
 
 	@Description("Uninstalls a bundle in a OSGi framework over JMX")
@@ -141,8 +151,7 @@ public class bndx extends AbstractConsoleApp {
 			}
 		}
 		catch (IllegalArgumentException e) {
-			addError("Deploy",
-				"Unable to connect to OSGi framework for deployment");
+			addError("Deploy", "Unable to connect to OSGi framework");
 		}
 
 		return bundleDeployer;

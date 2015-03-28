@@ -4,12 +4,12 @@
 	biz.aQute.bndlib,\
 	osgi.enroute.base.api
 
--includeresource: META-INF/services=services
-
 -sources: false
 
 Bundle-Version: 0.1.0.${tstamp}
 
+JPM-Classpath: ${java.home}/../lib/tools.jar
+JPM-Command: bndx
 Main-Class: com.liferay.bndx.bndx
 
 Private-Package: \
@@ -28,8 +28,6 @@ Private-Package: \
 	aQute.libg.sed;-split-package:=first,\
 	aQute.service.reporter;-split-package:=first,\
 	com.liferay.bndx,\
-	com.sun.tools.attach,\
-	com.sun.tools.attach.spi,\
-	org.osgi.framework,\
-	sun.jvmstat.*,\
-	sun.tools.attach
+	org.osgi.framework
+
+#	sun.jvmstat.perfdata.*,\
